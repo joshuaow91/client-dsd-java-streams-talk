@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { customStyle } from "../utils/SyntaxStyles";
 
 export default function LimitationsOfStreams({ isConcise }) {
   return (
-    <div className="max-w-5xl mx-auto pb-48">
-      <h3 className="text-6xl font-semibold mb-4 mt-16">
+    <div className="max-w-7xl mx-auto pb-48">
+      <h3 className="text-6xl font-semibold mb-4">
         Limitations of Streams
       </h3>
 
@@ -26,7 +27,7 @@ export default function LimitationsOfStreams({ isConcise }) {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Single Method Example Highlighting All Limitations
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
@@ -81,7 +82,7 @@ try {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Single Method Example Demonstrating All Limitations
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 

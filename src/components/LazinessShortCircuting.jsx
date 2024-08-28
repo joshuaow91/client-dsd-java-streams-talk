@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { customStyle } from "../utils/SyntaxStyles";
 
 export default function LazinessAndShortCircuiting({ isConcise }) {
   return (
-    <div className="max-w-5xl mx-auto pb-48">
-      <h3 className="text-6xl font-semibold mt-16 mb-4">
+    <div className="max-w-7xl mx-auto pb-48">
+      <h3 className="text-6xl font-semibold mb-4">
         Laziness and Short-Circuiting
       </h3>
 
@@ -23,7 +24,7 @@ export default function LazinessAndShortCircuiting({ isConcise }) {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Example of short-circuiting with findFirst()
 List<String> names = Arrays.asList("Michael", "Angela", "Jim", "Pam", "Dwight");
 String firstNameStartingWithA = names.stream()
@@ -43,7 +44,7 @@ String firstNameStartingWithA = names.stream()
             stream operations early if a condition is met.
           </p>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Example of short-circuiting with findFirst()
 List<String> names = Arrays.asList("Michael", "Angela", "Jim", "Pam", "Dwight");
 String firstNameStartingWithA = names.stream()

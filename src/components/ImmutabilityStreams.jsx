@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { customStyle } from "../utils/SyntaxStyles";
 
 export default function ImmutabilityInStreams({ isConcise }) {
   return (
-    <div className="max-w-5xl mx-auto pb-48">
-      <h3 className="text-6xl font-semibold mb-4 mt-16">
+    <div className="max-w-7xl mx-auto pb-48">
+      <h3 className="text-6xl font-semibold mb-4">
         Immutability in Streams
       </h3>
 
@@ -28,7 +29,7 @@ export default function ImmutabilityInStreams({ isConcise }) {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Example of immutability in streams
 
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
@@ -68,7 +69,7 @@ List<String> processedNames = names.stream()                   // Original data 
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Example of immutability in streams
 
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");

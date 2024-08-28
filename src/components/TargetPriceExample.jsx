@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { customStyle } from "../utils/SyntaxStyles";
 
 export default function TargetPriceUpCalculation({ aggregates }) {
   const [targetPriceUp, setTargetPriceUp] = useState(null);
@@ -40,6 +41,7 @@ export default function TargetPriceUpCalculation({ aggregates }) {
       <SyntaxHighlighter
         language="java"
         style={oneDark}
+        customStyle={customStyle}
         className="rounded-md mb-4"
       >
         {`// Java Streams Code
@@ -57,6 +59,7 @@ private double calculateTargetPriceUp(List<Aggregates> aggregates) {
       <SyntaxHighlighter
         language="java"
         style={oneDark}
+        customStyle={customStyle}
         className="rounded-md mb-4"
       >
         {`// For Loop Equivalent

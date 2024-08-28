@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { customStyle } from "../utils/SyntaxStyles";
 
 export default function AdditionalAspectsOfPipeline({ isConcise }) {
   return (
-    <div className="max-w-5xl mx-auto pb-48">
-      <h3 className="text-6xl font-semibold mb-4 mt-16">
+    <div className="max-w-7xl mx-auto pb-48">
+      <h3 className="text-6xl font-semibold mb-4">
         Additional Aspects of a Pipeline
       </h3>
 
@@ -43,7 +44,7 @@ export default function AdditionalAspectsOfPipeline({ isConcise }) {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Example showcasing statefulness, performance, and handling nulls
 
 List<String> names = Arrays.asList("Michael", null, "Jim", "Pam", "Dwight", "Angela");
@@ -99,7 +100,7 @@ List<String> result = names.stream()
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Example showcasing statefulness, performance, and handling nulls
 
 List<String> names = Arrays.asList("Michael", null, "Jim", "Pam", "Dwight", "Angela");

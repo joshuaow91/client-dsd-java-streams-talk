@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import PropTypes from "prop-types";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { customStyle } from "../utils/SyntaxStyles";
 
 export default function HighPriceCalculation({ aggregates }) {
   const [highPrice, setHighPrice] = useState(null);
@@ -20,6 +21,7 @@ export default function HighPriceCalculation({ aggregates }) {
       <SyntaxHighlighter
         language="java"
         style={oneDark}
+        customStyle={customStyle}
         className="rounded-md mb-4"
       >
         {`// Java Streams Code
@@ -35,6 +37,7 @@ private double calculateHighPrice(List<Aggregates> aggregates) {
       <SyntaxHighlighter
         language="java"
         style={oneDark}
+        customStyle={customStyle}
         className="rounded-md mb-4"
       >
         {`// For Loop Equivalent

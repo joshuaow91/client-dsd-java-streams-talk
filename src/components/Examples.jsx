@@ -51,7 +51,7 @@ export default function AggregationDemo() {
 
   return (
     <div className=" text-gray-300 max-w-7xl mx-auto pb-48">
-      <h2 className="text-9xl max-w-4xl mx-auto mb-12 tracking-tighter drop-shadow-lg uppercase font-black bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text">
+      <h2 className="text-9xl max-w-4xl mb-12 tracking-tighter drop-shadow-lg uppercase font-black bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text">
         Java Streams API Examples
       </h2>
 

@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { customStyle } from "../utils/SyntaxStyles";
 
 export default function HowStreamsWork({ isConcise }) {
   return (
-    <div className="max-w-5xl mx-auto pb-48">
-      <h2 className="text-6xl font-bold mb-6 max-w-3xl">
+    <div className="max-w-7xl mx-auto pb-48">
+      <h2 className="text-6xl font-bold mb-4 max-w-3xl">
         How Streams Work (Stream Pipeline)
       </h2>
 
@@ -29,17 +30,17 @@ export default function HowStreamsWork({ isConcise }) {
               <code className="text-green-300">forEach()</code>.
             </li>
           </ul>
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Example of Stream Pipeline
 
 // Source: A list of names
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
 // Stream pipeline: Source -> Intermediate Operations -> Terminal Operation
-List<String> filteredNames = names.stream()                 // Source
-                                  .filter(name -> name.startsWith("A"))  // Intermediate Operation
-                                  .map(String::toUpperCase)  // Intermediate Operation
-                                  .toList();  // Terminal Operation (Java 16+)
+List<String> filteredNames = names.stream()      // Source
+                                  .filter(name -> name.startsWith("A")) // Intermediate Operation
+                                  .map(String::toUpperCase) // Intermediate Operation
+                                  .toList(); // Terminal Operation (Java 16+)
 
 // The resulting list: ["ALICE"]
 `}
@@ -77,17 +78,17 @@ List<String> filteredNames = names.stream()                 // Source
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark}>
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
             {`// Example of Stream Pipeline
 
 // Source: A list of names
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
 // Stream pipeline: Source -> Intermediate Operations -> Terminal Operation
-List<String> filteredNames = names.stream()                 // Source
+List<String> filteredNames = names.stream()    // Source
                                   .filter(name -> name.startsWith("A"))  // Intermediate Operation
-                                  .map(String::toUpperCase)  // Intermediate Operation
-                                  .toList();  // Terminal Operation (Java 16+)
+                                  .map(String::toUpperCase) // Intermediate Operation
+                                  .toList(); // Terminal Operation (Java 16+)
 
 // The resulting list: ["ALICE"]
 `}

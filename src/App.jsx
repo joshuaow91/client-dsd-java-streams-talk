@@ -19,10 +19,10 @@ export default function App() {
   return (
     <div className="max-w-screen-2xl min-h-screen mx-auto bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-zinc-900 to-blk">
       <Header />
-      <div className="fixed top-0 right-0 m-4">
+      <div className="absolute top-0 right-0 m-4">
         <button
           onClick={toggleContent}
-          className="bg-blue-500 text-white px-6 py-2 rounded-md"
+          className="bg-blue-500 text-white font-semibold px-6 py-2 rounded-md"
         >
           {isConcise ? "Detailed View" : "Presentation Mode"}
         </button>
