@@ -5,8 +5,10 @@ import { customStyle } from "../utils/codeBlockStyles";
 
 export default function ImmutabilityInStreams({ isConcise }) {
   return (
-    <div className="max-w-7xl mx-auto mb-24 md:pb-48">
-      <h3 className="text-4xl md:text-6xl font-semibold mb-4">Immutability in Streams</h3>
+    <div className="max-w-7xl mx-auto pb-24 md:pb-48">
+      <h3 className="text-4xl md:text-6xl font-semibold mb-4">
+        Immutability in Streams
+      </h3>
 
       {isConcise ? (
         <>
@@ -92,7 +94,7 @@ List<String> processedNames = names.stream()                   // Original data 
 `}
           </SyntaxHighlighter>
 
-          <p className="text-lg md:text-2xl mb-6 mt-6 leading-8 md:leading-10">
+          <p className="text-lg md:text-2xl mt-6 leading-8 md:leading-10">
             This code example shows how multiple operations can be applied to a
             stream without changing the original list. The stream pipeline
             starts with the original list{" "}

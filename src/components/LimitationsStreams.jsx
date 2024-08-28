@@ -6,7 +6,9 @@ import { customStyle } from "../utils/codeBlockStyles";
 export default function LimitationsOfStreams({ isConcise }) {
   return (
     <div className="max-w-7xl mx-auto pb-24 md:pb-48">
-      <h3 className="text-4xl md:text-6xl font-semibold mb-4">Limitations of Streams</h3>
+      <h3 className="text-4xl md:text-6xl font-semibold mb-4">
+        Limitations of Streams
+      </h3>
 
       {isConcise ? (
         <>
