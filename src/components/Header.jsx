@@ -1,4 +1,3 @@
-
 export default function Header() {
   return (
     <header className="flex flex-col pt-24 max-w-5xl mx-auto">

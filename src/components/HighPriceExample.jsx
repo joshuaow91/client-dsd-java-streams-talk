@@ -16,6 +16,7 @@ export default function HighPriceCalculation({ aggregates }) {
       <h3 className="text-2xl font-semibold mb-2 text-blue-400">
         Calculate High Price
       </h3>
+
       <SyntaxHighlighter
         language="java"
         style={oneDark}
@@ -23,10 +24,10 @@ export default function HighPriceCalculation({ aggregates }) {
       >
         {`// Java Streams Code
 private double calculateHighPrice(List<Aggregates> aggregates) {
-    return aggregates.stream()
-            .mapToDouble(Aggregates::getHigh)
-            .max()
-            .orElse(Double.NaN);
+    return aggregates.stream()  // Source: the data source is a list of aggregates
+            .mapToDouble(Aggregates::getHigh) // Intermediate Operation: mapToDouble is stateless, transforms each 'Aggregates' to its 'high' value
+            .max() // Terminal Operation: max is a stateful operation that processes all elements to determine the highest value
+            .orElse(Double.NaN); // Provides a default value if the stream is empty
 }
 `}
       </SyntaxHighlighter>
@@ -38,13 +39,13 @@ private double calculateHighPrice(List<Aggregates> aggregates) {
       >
         {`// For Loop Equivalent
 private double calculateHighPrice(List<Aggregates> aggregates) {
-    double maxHigh = Double.NaN;
-    for (Aggregates aggregate : aggregates) {
-        if (Double.isNaN(maxHigh) || aggregate.getHigh() > maxHigh) {
-            maxHigh = aggregate.getHigh();
+    double maxHigh = Double.NaN; // Initial state
+    for (Aggregates aggregate : aggregates) { // Iterative approach: loops through each element
+        if (Double.isNaN(maxHigh) || aggregate.getHigh() > maxHigh) { // Checks if current 'high' is greater
+            maxHigh = aggregate.getHigh(); // Updates the maximum if current is higher
         }
     }
-    return maxHigh;
+    return maxHigh; // Returns the final maximum value
 }
 `}
       </SyntaxHighlighter>
@@ -55,13 +56,13 @@ private double calculateHighPrice(List<Aggregates> aggregates) {
       >
         Calculate High Price
       </button>
-      <p className="mt-4 text-lg">Expected High Price: 130</p>
+      <p className="mt-4 text-lg">Expected High Price: 140</p>
       {highPrice !== null && (
         <p className="mt-1 text-lg">Calculated High Price: {highPrice}</p>
       )}
     </div>
   );
-};
+}
 
 HighPriceCalculation.propTypes = {
   aggregates: PropTypes.arrayOf(

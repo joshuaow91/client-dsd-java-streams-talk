@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-export default function TriggerPriceUpCalculation({ aggregates }){
+export default function TriggerPriceUpCalculation({ aggregates }) {
   const [triggerPriceUp, setTriggerPriceUp] = useState(null);
 
   const calculateTriggerPriceUp = () => {
@@ -20,6 +20,7 @@ export default function TriggerPriceUpCalculation({ aggregates }){
       <h3 className="text-2xl font-semibold mb-2 text-blue-400">
         Calculate Trigger Price Up
       </h3>
+
       <SyntaxHighlighter
         language="java"
         style={oneDark}
@@ -27,10 +28,10 @@ export default function TriggerPriceUpCalculation({ aggregates }){
       >
         {`// Java Streams Code
 private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
-    return aggregates.stream()
-            .max(Comparator.comparing(Aggregates::getEndTime))
-            .map(Aggregates::getHigh)
-            .orElse(Double.NaN);
+    return aggregates.stream() // Source: list of aggregates
+            .max(Comparator.comparing(Aggregates::getEndTime)) // Intermediate Operation: 'max' is stateful and non-short-circuiting; it requires comparing all elements based on 'endTime'
+            .map(Aggregates::getHigh) // Terminal Operation: map to extract the 'high' value of the latest aggregate
+            .orElse(Double.NaN); // Provides a default value if stream is empty
 }
 `}
       </SyntaxHighlighter>
@@ -42,13 +43,13 @@ private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
       >
         {`// For Loop Equivalent
 private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
-    Aggregates latestAggregate = aggregates.get(0);
-    for (Aggregates aggregate : aggregates) {
-        if (aggregate.getEndTime().isAfter(latestAggregate.getEndTime())) {
-            latestAggregate = aggregate;
+    Aggregates latestAggregate = aggregates.get(0); // Initialize with the first aggregate
+    for (Aggregates aggregate : aggregates) { // Iterative approach: loops through each element
+        if (aggregate.getEndTime().isAfter(latestAggregate.getEndTime())) { // Compares each 'endTime' to find the latest
+            latestAggregate = aggregate; // Updates to the latest aggregate if current is later
         }
     }
-    return latestAggregate.getHigh();
+    return latestAggregate.getHigh(); // Returns the 'high' value of the latest aggregate
 }
 `}
       </SyntaxHighlighter>
@@ -59,7 +60,8 @@ private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
       >
         Calculate Trigger Price Up
       </button>
-      <p className="mt-4 text-lg">Expected Trigger Price Up: 128</p>
+
+      <p className="mt-4 text-lg">Expected Trigger Price Up: 140</p>
       {triggerPriceUp !== null && (
         <p className="mt-1 text-lg">
           Calculated Trigger Price Up: {triggerPriceUp}
@@ -67,7 +69,7 @@ private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
       )}
     </div>
   );
-};
+}
 
 TriggerPriceUpCalculation.propTypes = {
   aggregates: PropTypes.arrayOf(

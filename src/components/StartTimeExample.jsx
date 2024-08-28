@@ -18,6 +18,7 @@ export default function StartTimeCalculation({ aggregates }) {
       <h3 className="text-2xl font-semibold mb-2 text-blue-400">
         Calculate Start Time
       </h3>
+
       <SyntaxHighlighter
         language="java"
         style={oneDark}
@@ -25,10 +26,10 @@ export default function StartTimeCalculation({ aggregates }) {
       >
         {`// Java Streams Code
 private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
-    return aggregates.stream()
-            .map(Aggregates::getStartTime)
-            .min(ZonedDateTime::compareTo)
-            .orElse(ZonedDateTime.now());
+    return aggregates.stream() // Source: list of aggregates
+            .map(Aggregates::getStartTime) // Intermediate Operation: transforms each 'Aggregates' to its 'startTime'
+            .min(ZonedDateTime::compareTo) // Terminal Operation: min is stateful, it must process all elements to find the minimum
+            .orElse(ZonedDateTime.now()); // Default value if stream is empty
 }
 `}
       </SyntaxHighlighter>
@@ -40,13 +41,13 @@ private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
       >
         {`// For Loop Equivalent
 private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
-    ZonedDateTime earliestStart = ZonedDateTime.now();
-    for (Aggregates aggregate : aggregates) {
-        if (aggregate.getStartTime().isBefore(earliestStart)) {
-            earliestStart = aggregate.getStartTime();
+    ZonedDateTime earliestStart = ZonedDateTime.now(); // Initial state
+    for (Aggregates aggregate : aggregates) { // Iterative approach: loops through each element
+        if (aggregate.getStartTime().isBefore(earliestStart)) { // Checks if the current 'startTime' is earlier
+            earliestStart = aggregate.getStartTime(); // Updates to the earliest time if current is earlier
         }
     }
-    return earliestStart;
+    return earliestStart; // Returns the earliest start time found
 }
 `}
       </SyntaxHighlighter>
@@ -57,13 +58,14 @@ private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
       >
         Calculate Start Time
       </button>
+
       <p className="mt-4 text-lg">Expected Start Time: 2023-08-25T10:00:00Z</p>
       {startTime !== null && (
         <p className="mt-1 text-lg">Calculated Start Time: {startTime}</p>
       )}
     </div>
   );
-};
+}
 
 StartTimeCalculation.propTypes = {
   aggregates: PropTypes.arrayOf(
@@ -77,4 +79,3 @@ StartTimeCalculation.propTypes = {
     }),
   ).isRequired,
 };
-
