@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { customStyle } from "../utils/SyntaxStyles";
+import { customStyle } from "../utils/codeBlockStyles";
 
 export default function LimitationsOfStreams({ isConcise }) {
   return (
