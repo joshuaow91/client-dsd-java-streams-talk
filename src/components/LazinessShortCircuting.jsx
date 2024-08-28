@@ -5,14 +5,14 @@ import { customStyle } from "../utils/codeBlockStyles";
 
 export default function LazinessAndShortCircuiting({ isConcise }) {
   return (
-    <div className="max-w-7xl mx-auto pb-48">
-      <h3 className="text-6xl font-semibold mb-4">
+    <div className="max-w-7xl mx-auto pb-24 md:pb-48">
+      <h3 className="text-4xl md:text-6xl font-semibold mb-4">
         Laziness and Short-Circuiting
       </h3>
 
       {isConcise ? (
         <>
-          <ul className="list-disc list-inside text-2xl mb-6 leading-10 marker:text-pink-500">
+          <ul className="list-disc list-inside text-lg md:text-2xl mb-6 leading-8 md:leading-10 marker:text-pink-500">
             <li>
               <strong>Lazy Processing:</strong> Streams only process elements as
               needed.
@@ -39,7 +39,7 @@ String firstNameStartingWithA = names.stream()
         </>
       ) : (
         <>
-          <p className="text-2xl mb-6 leading-10">
+          <p className="text-lg md:text-2xl mb-6 leading-8 md:leading-10">
             Streams are lazy, meaning they only process elements as needed. This
             laziness allows for optimizations such as short-circuiting, where
             processing stops as soon as a result is found. For example, methods
@@ -61,7 +61,7 @@ String firstNameStartingWithA = names.stream()
                                      .orElse("No match");`}
           </SyntaxHighlighter>
 
-          <p className="text-2xl mt-6 leading-10">
+          <p className="text-lg md:text-2xl mt-6 leading-8 md:leading-10">
             In this example, the stream will stop processing once it finds the
             first name that starts with &apos;A&apos;. If &quot;Angela&quot; is
             the first in the list, the rest of the names are not processed,

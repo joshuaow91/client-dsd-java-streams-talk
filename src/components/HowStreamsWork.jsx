@@ -5,14 +5,14 @@ import { customStyle } from "../utils/codeBlockStyles";
 
 export default function HowStreamsWork({ isConcise }) {
   return (
-    <div className="max-w-7xl mx-auto pb-48">
-      <h2 className="text-6xl font-bold mb-4 max-w-3xl">
+    <div className="max-w-7xl mx-auto pb-24 md:pb-48">
+      <h2 className="text-4xl md:text-6xl font-bold mb-4 max-w-3xl">
         How Streams Work (Stream Pipeline)
       </h2>
 
       {isConcise ? (
         <>
-          <ul className="list-disc list-inside text-2xl mb-6 leading-10 marker:text-pink-500">
+          <ul className="list-disc list-inside text-lg md:text-2xl mb-6 leading-8 md:leading-10 marker:text-pink-500">
             <li>
               <strong className="text-orange-300">Source</strong>: The starting
               point, like a collection or an array.
@@ -52,7 +52,7 @@ List<String> filteredNames = names.stream()      // Source
         </>
       ) : (
         <>
-          <p className="text-2xl mb-2 leading-10">
+          <p className="text-lg md:text-2xl mb-2 leading-8 md:leading-10">
             A Stream pipeline consists of three parts:{" "}
             <strong className="text-orange-300">Source</strong>,{" "}
             <strong className="text-blue-300">Intermediate Operations</strong>,
@@ -60,7 +60,7 @@ List<String> filteredNames = names.stream()      // Source
             .
           </p>
 
-          <ul className="list-disc list-inside text-2xl mb-6 leading-10 marker:text-pink-500">
+          <ul className="list-disc list-inside text-lg md:text-2xl mb-6 leading-8 md:leading-10 marker:text-pink-500">
             <li>
               <strong className="text-orange-300">Source</strong>: The data
               source for the stream (like a collection or an array).

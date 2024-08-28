@@ -5,12 +5,12 @@ import { customStyle } from "../utils/codeBlockStyles";
 
 export default function LimitationsOfStreams({ isConcise }) {
   return (
-    <div className="max-w-7xl mx-auto pb-48">
-      <h3 className="text-6xl font-semibold mb-4">Limitations of Streams</h3>
+    <div className="max-w-7xl mx-auto pb-24 md:pb-48">
+      <h3 className="text-4xl md:text-6xl font-semibold mb-4">Limitations of Streams</h3>
 
       {isConcise ? (
         <>
-          <ul className="list-disc list-inside text-2xl mb-6 leading-10">
+          <ul className="list-disc list-inside text-lg md:text-2xl mb-6 leading-8 md:leading-10">
             <li>
               <strong className="text-orange-300">Single-Use:</strong> Streams
               are single-use; reusing them throws an error.
@@ -60,7 +60,7 @@ try {
         </>
       ) : (
         <>
-          <ul className="list-disc list-inside text-2xl mb-6 leading-10">
+          <ul className="list-disc list-inside text-lg md:text-2xl mb-6 leading-8 md:leading-10">
             <li>
               <strong className="text-orange-300">Single-Use:</strong> Streams
               can only be used once. After a terminal operation, attempting to
@@ -117,7 +117,7 @@ try {
 `}
           </SyntaxHighlighter>
 
-          <p className="text-2xl mt-6 leading-10">
+          <p className="text-lg md:text-2xl mt-6 leading-8 md:leading-10">
             In this example, the method demonstrates:
             <strong> Single-Use </strong> by showing that a stream cannot be
             reused,
