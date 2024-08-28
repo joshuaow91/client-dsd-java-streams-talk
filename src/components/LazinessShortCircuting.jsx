@@ -24,7 +24,11 @@ export default function LazinessAndShortCircuiting({ isConcise }) {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`// Example of short-circuiting with findFirst()
 List<String> names = Arrays.asList("Michael", "Angela", "Jim", "Pam", "Dwight");
 String firstNameStartingWithA = names.stream()
@@ -44,7 +48,11 @@ String firstNameStartingWithA = names.stream()
             stream operations early if a condition is met.
           </p>
 
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`// Example of short-circuiting with findFirst()
 List<String> names = Arrays.asList("Michael", "Angela", "Jim", "Pam", "Dwight");
 String firstNameStartingWithA = names.stream()

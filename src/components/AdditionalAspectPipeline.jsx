@@ -44,7 +44,11 @@ export default function AdditionalAspectsOfPipeline({ isConcise }) {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`// Example showcasing statefulness, performance, and handling nulls
 
 List<String> names = Arrays.asList("Michael", null, "Jim", "Pam", "Dwight", "Angela");
@@ -100,7 +104,11 @@ List<String> result = names.stream()
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`// Example showcasing statefulness, performance, and handling nulls
 
 List<String> names = Arrays.asList("Michael", null, "Jim", "Pam", "Dwight", "Angela");

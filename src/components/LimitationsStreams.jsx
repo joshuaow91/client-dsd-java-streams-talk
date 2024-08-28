@@ -6,9 +6,7 @@ import { customStyle } from "../utils/SyntaxStyles";
 export default function LimitationsOfStreams({ isConcise }) {
   return (
     <div className="max-w-7xl mx-auto pb-48">
-      <h3 className="text-6xl font-semibold mb-4">
-        Limitations of Streams
-      </h3>
+      <h3 className="text-6xl font-semibold mb-4">Limitations of Streams</h3>
 
       {isConcise ? (
         <>
@@ -27,7 +25,11 @@ export default function LimitationsOfStreams({ isConcise }) {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`// Single Method Example Highlighting All Limitations
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
@@ -82,7 +84,11 @@ try {
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`// Single Method Example Demonstrating All Limitations
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 

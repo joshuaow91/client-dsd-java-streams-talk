@@ -4,7 +4,6 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { customStyle } from "../utils/SyntaxStyles";
 
 export default function WhatAreStreams({ isConcise }) {
-
   return (
     <div className="max-w-7xl mx-auto mt-16 pb-48">
       <h2 className="text-6xl font-bold mb-4">What are Java Streams?</h2>
@@ -17,7 +16,11 @@ export default function WhatAreStreams({ isConcise }) {
             <li>Supports parallel processing for concurrent code.</li>
             <li>Provides a more expressive functional approach.</li>
           </ul>
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`//Streams Code
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
@@ -28,7 +31,11 @@ public List<String> filterNamesUsingStream(List<String> names) {
     return filteredNames;
 }`}
           </SyntaxHighlighter>
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`//For Loop Equivalent
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
@@ -72,7 +79,11 @@ public List<String> filterNamesUsingLoop(List<String> names) {
               <u>expressive.</u>
             </li>
           </ul>
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`//Streams Code
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
@@ -83,7 +94,11 @@ public List<String> filterNamesUsingStream(List<String> names) {
     return filteredNames;
 }`}
           </SyntaxHighlighter>
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`//For Loop Equivalent
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 

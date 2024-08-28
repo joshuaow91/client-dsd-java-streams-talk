@@ -30,7 +30,11 @@ export default function HowStreamsWork({ isConcise }) {
               <code className="text-green-300">forEach()</code>.
             </li>
           </ul>
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`// Example of Stream Pipeline
 
 // Source: A list of names
@@ -78,7 +82,11 @@ List<String> filteredNames = names.stream()      // Source
             </li>
           </ul>
 
-          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+          <SyntaxHighlighter
+            language="java"
+            style={oneDark}
+            customStyle={customStyle}
+          >
             {`// Example of Stream Pipeline
 
 // Source: A list of names
