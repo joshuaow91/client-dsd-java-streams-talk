@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const StartTimeCalculation = ({ aggregates }) => {
+export default function StartTimeCalculation({ aggregates }) {
   const [startTime, setStartTime] = useState(null);
 
   const calculateStartTime = () => {
@@ -78,4 +78,3 @@ StartTimeCalculation.propTypes = {
   ).isRequired,
 };
 
-export default StartTimeCalculation;

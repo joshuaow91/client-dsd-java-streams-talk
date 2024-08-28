@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import PropTypes from "prop-types";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const HighPriceCalculation = ({ aggregates }) => {
+export default function HighPriceCalculation({ aggregates }) {
   const [highPrice, setHighPrice] = useState(null);
 
   const calculateHighPrice = () => {
@@ -75,5 +75,3 @@ HighPriceCalculation.propTypes = {
     }),
   ).isRequired,
 };
-
-export default HighPriceCalculation;

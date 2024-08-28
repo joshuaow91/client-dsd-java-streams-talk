@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const TargetPriceDownCalculation = ({ aggregates }) => {
+export default function TargetPriceDownCalculation({ aggregates }) {
   const [targetPriceDown, setTargetPriceDown] = useState(null);
 
   const calculateTargetPriceDown = () => {
@@ -109,5 +109,3 @@ TargetPriceDownCalculation.propTypes = {
     }),
   ).isRequired,
 };
-
-export default TargetPriceDownCalculation;

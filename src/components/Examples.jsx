@@ -5,7 +5,7 @@ import StartTimeCalculation from "./StartTimeExample";
 import TriggerPriceUpCalculation from "./TriggerPriceExample";
 import TargetPriceDownCalculation from "./TargetPriceExample";
 
-const AggregationDemo = () => {
+export default function AggregationDemo() {
   const aggregates = [
     {
       high: 120,
@@ -34,7 +34,7 @@ const AggregationDemo = () => {
   ];
 
   return (
-    <div className="pb-8 text-gray-300">
+    <div className=" text-gray-300 max-w-5xl mx-auto pb-48">
       <h2 className="text-9xl max-w-4xl mb-12 tracking-tighter drop-shadow-lg uppercase font-black bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text">
         Java Streams API Examples
       </h2>
@@ -61,5 +61,3 @@ const AggregationDemo = () => {
     </div>
   );
 };
-
-export default AggregationDemo;

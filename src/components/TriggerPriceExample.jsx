@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const TriggerPriceUpCalculation = ({ aggregates }) => {
+export default function TriggerPriceUpCalculation({ aggregates }){
   const [triggerPriceUp, setTriggerPriceUp] = useState(null);
 
   const calculateTriggerPriceUp = () => {
@@ -81,5 +81,3 @@ TriggerPriceUpCalculation.propTypes = {
     }),
   ).isRequired,
 };
-
-export default TriggerPriceUpCalculation;
