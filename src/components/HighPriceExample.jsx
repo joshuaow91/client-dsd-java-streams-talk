@@ -24,11 +24,10 @@ export default function HighPriceCalculation({ aggregates }) {
         customStyle={customStyle}
         className="rounded-md mb-4"
       >
-        {`// Java Streams Code
-private double calculateHighPrice(List<Aggregates> aggregates) {
+        {`private double calculateHighPrice(List<Aggregates> aggregates) {
     return aggregates.stream()  // Source: the data source is a list of aggregates
-            .mapToDouble(Aggregates::getHigh) // Intermediate Operation: mapToDouble is stateless, transforms each 'Aggregates' to its 'high' value
-            .max() // Terminal Operation: max is a stateful operation that processes all elements to determine the highest value
+            .mapToDouble(Aggregates::getHigh) // Intermediate Operation, Stateless, transforms each 'Aggregates' to its 'high' value
+            .max() // Terminal Operation, Stateful operation that processes all elements to determine the highest value
             .orElse(Double.NaN); // Provides a default value if the stream is empty
 }
 `}

@@ -26,8 +26,7 @@ export default function StartTimeCalculation({ aggregates }) {
         customStyle={customStyle}
         className="rounded-md mb-4"
       >
-        {`// Java Streams Code
-private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
+        {`private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
     return aggregates.stream() // Source: list of aggregates
             .map(Aggregates::getStartTime) // Intermediate Operation: transforms each 'Aggregates' to its 'startTime'
             .min(ZonedDateTime::compareTo) // Terminal Operation: min is stateful, it must process all elements to find the minimum
@@ -57,7 +56,7 @@ private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
 
       <button
         onClick={calculateStartTime}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        className="bg-blue-500 text-white px-4 py-2 rounded-md font-semibold"
       >
         Calculate Start Time
       </button>

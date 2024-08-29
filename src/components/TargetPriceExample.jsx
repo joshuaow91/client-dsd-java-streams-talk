@@ -44,8 +44,7 @@ export default function TargetPriceUpCalculation({ aggregates }) {
         customStyle={customStyle}
         className="rounded-md mb-4"
       >
-        {`// Java Streams Code
-private double calculateTargetPriceUp(List<Aggregates> aggregates) {
+        {`private double calculateTargetPriceUp(List<Aggregates> aggregates) {
     return aggregates.stream() // Source: list of aggregates
             .sorted(Comparator.comparing(Aggregates::getEndTime).reversed()) // Intermediate Operation: 'sorted' is stateful and requires a full pass over the data
             .skip(1) // Intermediate Operation: 'skip' is stateless but still processes all preceding elements
@@ -87,7 +86,7 @@ private double calculateTargetPriceUp(List<Aggregates> aggregates) {
 
       <button
         onClick={calculateTargetPriceUp}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        className="bg-blue-500 text-white px-4 py-2 rounded-md font-semibold"
       >
         Calculate Target Price Up
       </button>

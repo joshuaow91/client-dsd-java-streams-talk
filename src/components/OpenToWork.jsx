@@ -3,7 +3,7 @@ export default function OpenToWork() {
     <div className="snap-start h-screen flex flex-col items-center justify-center bg-blk py-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
         <div className="flex flex-col">
-          <h2 className="text-6xl md:text-9xl max-w-4xl mb-12 tracking-tighter drop-shadow-lg uppercase font-black bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
+          <h2 className="text-7xl md:text-9xl max-w-4xl mb-12 tracking-tighter drop-shadow-lg uppercase font-black bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
             Open to Work, <br />
             Hire Me!
           </h2>
@@ -42,9 +42,9 @@ export default function OpenToWork() {
         <div className="hidden ml-16 mt-8 md:flex justify-center items-center">
           <div className="w-[600px] h-[600px] bg-gray-200 flex items-center justify-center rounded-lg shadow-md">
             <img
-              src="/qr.svg"
+              src="/qr.png"
               alt="QR Code"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-xl"
             />
           </div>
         </div>

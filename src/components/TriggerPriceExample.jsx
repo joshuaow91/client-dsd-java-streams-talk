@@ -28,8 +28,7 @@ export default function TriggerPriceUpCalculation({ aggregates }) {
         customStyle={customStyle}
         className="rounded-md mb-4"
       >
-        {`// Java Streams Code
-private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
+        {`private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
     return aggregates.stream() // Source: list of aggregates
             .max(Comparator.comparing(Aggregates::getEndTime)) // Intermediate Operation: 'max' is stateful and non-short-circuiting; it requires comparing all elements based on 'endTime'
             .map(Aggregates::getHigh) // Terminal Operation: map to extract the 'high' value of the latest aggregate
@@ -59,7 +58,7 @@ private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
 
       <button
         onClick={calculateTriggerPriceUp}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        className="bg-blue-500 text-white px-4 py-2 rounded-md font-semibold"
       >
         Calculate Trigger Price Up
       </button>
