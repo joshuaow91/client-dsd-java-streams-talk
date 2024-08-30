@@ -89,7 +89,7 @@ List<String> result = names.stream()                 // Source
           >
             {`// Example: Stream Source
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);  // Source: List collection
-Stream<Integer> stream = numbers.stream();              // Creating a stream from the source
+Stream<Integer> stream = numbers.stream();
 `}
           </SyntaxHighlighter>
 
@@ -121,9 +121,9 @@ Stream<Integer> stream = numbers.stream();              // Creating a stream fro
           >
             {`// Example: Intermediate Operations
 List<Integer> evenSquares = numbers.stream()          // Source
-                                   .filter(n -> n % 2 == 0) // Intermediate: filter
-                                   .map(n -> n * n);        // Intermediate: map
-// At this stage, nothing is printed or calculated until a terminal operation is called
+                                   .filter(n -> n % 2 == 0) // Intermediate
+                                   .map(n -> n * n);   // Intermediate
+// Nothing is printed or calculated until a terminal operation is called
 `}
           </SyntaxHighlighter>
 
@@ -153,7 +153,7 @@ List<Integer> evenSquares = numbers.stream()          // Source
             customStyle={customStyle}
           >
             {`// Example: Terminal Operation
-List<Integer> result = evenSquares.collect(Collectors.toList()); // Terminal: collect
+List<Integer> result = evenSquares.collect(Collectors.toList()); // Terminal
 // Result: [4, 16] - Stream pipeline execution triggered and completed
 `}
           </SyntaxHighlighter>
@@ -174,10 +174,10 @@ List<Integer> result = evenSquares.collect(Collectors.toList()); // Terminal: co
             {`// Complete Stream Pipeline Example
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 List<String> processedNames = names.stream()                 // Source
-                                   .filter(name -> name.length() > 3) // Intermediate: filter
-                                   .map(String::toUpperCase)         // Intermediate: map
-                                   .sorted()                         // Intermediate: sorted
-                                   .collect(Collectors.toList());    // Terminal: collect
+                                   .filter(name -> name.length() > 3) // Intermediate
+                                   .map(String::toUpperCase)         // Intermediate
+                                   .sorted()                         // Intermediate
+                                   .collect(Collectors.toList());    // Terminal
 // Result: ["ANGELA", "DWIGHT", "MICHAEL"]
 `}
           </SyntaxHighlighter>

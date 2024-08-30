@@ -58,10 +58,10 @@ export default function CoreOperationsOfStreams({ isConcise }) {
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
 List<String> result = names.stream()
-                           .filter(name -> name.length() > 3)  // Intermediate Operation
-                           .map(String::toUpperCase)           // Intermediate Operation
-                           .findFirst()                        // Short-Circuit Operation
-                           .orElse("No match");                // Terminal Operation
+                           .filter(name -> name.length() > 3)  // Intermediate
+                           .map(String::toUpperCase)   // Intermediate
+                           .findFirst()                // Short-Circuit
+                           .orElse("No match");        // Terminal
 // Result: "MICHAEL"`}
           </SyntaxHighlighter>
         </>
@@ -98,9 +98,9 @@ List<String> result = names.stream()
             {`// Example: Intermediate Operations
 List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 List<Integer> evenNumbers = numbers.stream()
-                                   .filter(n -> n % 2 == 0)  // Intermediate: filter
-                                   .map(n -> n * n)          // Intermediate: map
-                                   .collect(Collectors.toList()); // Terminal: collect
+                                   .filter(n -> n % 2 == 0)  // Intermediate
+                                   .map(n -> n * n)          // Intermediate
+                                   .collect(Collectors.toList()); // Terminal
 // Result: [4, 16]
 `}
           </SyntaxHighlighter>

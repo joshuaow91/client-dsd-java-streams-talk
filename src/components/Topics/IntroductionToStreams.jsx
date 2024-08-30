@@ -80,9 +80,9 @@ List<String> filteredNames = names.stream()
             {`// Example: Filtering and Mapping Names
 List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 List<String> result = names.stream()
-                           .filter(name -> name.startsWith("A"))  // Filters names starting with 'A'
-                           .map(String::toUpperCase)              // Maps filtered names to uppercase
-                           .collect(Collectors.toList());         // Collects the result into a list
+                           .filter(name -> name.startsWith("A"))
+                           .map(String::toUpperCase)
+                           .collect(Collectors.toList());
 // Result: ["ANGELA"]`}
           </SyntaxHighlighter>
           <p className="text-lg md:text-2xl mt-6 leading-8 md:leading-10">
@@ -136,7 +136,8 @@ List<String> result = names.stream()
             {`// Real-World Example: Aggregating Employee Salaries
 List<Employee> employees = getEmployees();
 double totalSalary = employees.stream()
-                              .filter(employee -> employee.getDepartment().equals("Sales"))
+                              .filter(
+                              employee -> employee.getDepartment().equals("Sales"))
                               .mapToDouble(Employee::getSalary)
                               .sum();
 // Result: Total salary of employees in the Sales department`}

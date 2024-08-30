@@ -55,10 +55,9 @@ export default function KeyCharacteristicsOfStreams({ isConcise }) {
           >
             {`// Example: Stream Characteristics with Lazy Evaluation
 List<String> result = names.stream()
-                           .filter(name -> name.length() > 3) // Declarative Style
-                           .map(String::toUpperCase)         // Non-Destructive Operation
-                           .peek(System.out::println)        // Lazy Evaluation, prints during processing
-                           .toList();                        // Triggers execution
+                           .filter(name -> name.length() > 3) // Lazy
+                           .map(String::toUpperCase) // Non-Destructive Operation
+                           .toList();  // Triggers execution
 // Output: ["ANGELA", "DWIGHT", "MICHAEL"]`}
           </SyntaxHighlighter>
         </>
@@ -123,7 +122,6 @@ List<String> longNames = names.stream()
 List<String> processedNames = names.stream()
                                    .filter(name -> name.length() > 3)
                                    .map(String::toUpperCase)
-                                   .peek(System.out::println) // This line only executes when a terminal operation is called
                                    .collect(Collectors.toList());
 // Output printed during processing due to peek()
 `}
