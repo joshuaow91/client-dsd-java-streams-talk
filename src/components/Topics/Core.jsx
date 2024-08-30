@@ -134,7 +134,7 @@ List<String> names = Arrays.asList("Michael", "Jim", "Pam", "Dwight", "Angela");
 
 names.stream()
      .filter(name -> name.length() > 3)
-     .forEach(System.out::println);  // Terminal: forEach
+     .forEach(System.out::println);  // Terminal
 // Output: Michael, Dwight, Angela
 `}
           </SyntaxHighlighter>
