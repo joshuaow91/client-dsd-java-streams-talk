@@ -45,12 +45,13 @@ export default function TargetPriceUpCalculation({ aggregates }) {
         className="rounded-md mb-4"
       >
         {`private double calculateTargetPriceUp(List<Aggregates> aggregates) {
-    return aggregates.stream() // Source: list of aggregates
-            .sorted(Comparator.comparing(Aggregates::getEndTime).reversed()) // Intermediate Operation: 'sorted' is stateful and requires a full pass over the data
-            .skip(1) // Intermediate Operation: 'skip' is stateless but still processes all preceding elements
-            .findFirst() // Terminal Operation: finds the first element after 'skip', short-circuiting operation
-            .map(Aggregates::getHigh) // Intermediate Operation: 'map' transforms the stream elements
-            .orElse(Double.NaN); // Provides a default value if stream is empty or has fewer than 2 elements
+    return aggregates.stream() // Source: Stream of aggregates
+            // Stateful: sorts elements in reverse order by 'endTime'
+            .sorted(Comparator.comparing(Aggregates::getEndTime).reversed())
+            .skip(1) // Stateless: skips the first element
+            .findFirst() // Terminal, short-circuit: finds first element after 'skip'
+            .map(Aggregates::getHigh) // Optional Op: maps to 'high' value if present
+            .orElse(Double.NaN); // Default value if Optional is empty
 }
 `}
       </SyntaxHighlighter>
@@ -63,23 +64,22 @@ export default function TargetPriceUpCalculation({ aggregates }) {
       >
         {`// For Loop Equivalent
 private double calculateTargetPriceUp(List<Aggregates> aggregates) {
-    if (aggregates.size() < 2) return Double.NaN; // Ensure there are at least two items
+    if (aggregates.size() < 2) return Double.NaN;
 
-    Aggregates latest = aggregates.get(0); // Initialize the latest aggregate
-    Aggregates secondLatest = null; // Initialize secondLatest to null
+    Aggregates latest = aggregates.get(0);
+    Aggregates secondLatest = null;
 
-    // Find the latest and second latest aggregates
-    for (Aggregates aggregate : aggregates) { // Iterative approach: loops through each element
-        if (aggregate.getEndTime().isAfter(latest.getEndTime())) { // Compares each 'endTime' to find the latest
-            secondLatest = latest;  // The current latest becomes secondLatest
-            latest = aggregate; // Update latest to the current aggregate
-        } else if (secondLatest == null || aggregate.getEndTime().isAfter(secondLatest.getEndTime())) {
-            // Find the second latest aggregate
+    for (Aggregates aggregate : aggregates) {
+        if (aggregate.getEndTime().isAfter(latest.getEndTime())) {
+            secondLatest = latest;
+            latest = aggregate;
+        } else if (secondLatest == null ||
+                    aggregate.getEndTime().isAfter(secondLatest.getEndTime())) {
             secondLatest = aggregate;
         }
     }
 
-    return secondLatest != null ? secondLatest.getHigh() : Double.NaN; // Returns the 'high' value of the second latest aggregate
+    return secondLatest != null ? secondLatest.getHigh() : Double.NaN;
 }
 `}
       </SyntaxHighlighter>

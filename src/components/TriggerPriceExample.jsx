@@ -30,8 +30,9 @@ export default function TriggerPriceUpCalculation({ aggregates }) {
       >
         {`private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
     return aggregates.stream() // Source: list of aggregates
-            .max(Comparator.comparing(Aggregates::getEndTime)) // Intermediate Operation: 'max' is stateful and non-short-circuiting; it requires comparing all elements based on 'endTime'
-            .map(Aggregates::getHigh) // Terminal Operation: map to extract the 'high' value of the latest aggregate
+            // Terminal-like operation: finds max element
+            .max(Comparator.comparing(Aggregates::getEndTime))
+            .map(Aggregates::getHigh) // map to extract the 'high' value
             .orElse(Double.NaN); // Provides a default value if stream is empty
 }
 `}
@@ -45,13 +46,13 @@ export default function TriggerPriceUpCalculation({ aggregates }) {
       >
         {`// For Loop Equivalent
 private double calculateTriggerPriceUp(List<Aggregates> aggregates) {
-    Aggregates latestAggregate = aggregates.get(0); // Initialize with the first aggregate
-    for (Aggregates aggregate : aggregates) { // Iterative approach: loops through each element
-        if (aggregate.getEndTime().isAfter(latestAggregate.getEndTime())) { // Compares each 'endTime' to find the latest
-            latestAggregate = aggregate; // Updates to the latest aggregate if current is later
+    Aggregates latestAggregate = aggregates.get(0);
+    for (Aggregates aggregate : aggregates) {
+        if (aggregate.getEndTime().isAfter(latestAggregate.getEndTime())) {
+            latestAggregate = aggregate;
         }
     }
-    return latestAggregate.getHigh(); // Returns the 'high' value of the latest aggregate
+    return latestAggregate.getHigh();
 }
 `}
       </SyntaxHighlighter>

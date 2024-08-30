@@ -28,8 +28,9 @@ export default function StartTimeCalculation({ aggregates }) {
       >
         {`private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
     return aggregates.stream() // Source: list of aggregates
-            .map(Aggregates::getStartTime) // Intermediate Operation: transforms each 'Aggregates' to its 'startTime'
-            .min(ZonedDateTime::compareTo) // Terminal Operation: min is stateful, it must process all elements to find the minimum
+            .map(Aggregates::getStartTime) // Transforms each Agg to its 'startTime'
+            // Terminal, Stateful, must process all elements to find the minimum
+            .min(ZonedDateTime::compareTo) 
             .orElse(ZonedDateTime.now()); // Default value if stream is empty
 }
 `}
@@ -43,13 +44,13 @@ export default function StartTimeCalculation({ aggregates }) {
       >
         {`// For Loop Equivalent
 private ZonedDateTime calculateStartTime(List<Aggregates> aggregates) {
-    ZonedDateTime earliestStart = ZonedDateTime.now(); // Initial state
-    for (Aggregates aggregate : aggregates) { // Iterative approach: loops through each element
-        if (aggregate.getStartTime().isBefore(earliestStart)) { // Checks if the current 'startTime' is earlier
-            earliestStart = aggregate.getStartTime(); // Updates to the earliest time if current is earlier
+    ZonedDateTime earliestStart = ZonedDateTime.now();
+    for (Aggregates aggregate : aggregates) {
+        if (aggregate.getStartTime().isBefore(earliestStart)) {
+            earliestStart = aggregate.getStartTime();
         }
     }
-    return earliestStart; // Returns the earliest start time found
+    return earliestStart;
 }
 `}
       </SyntaxHighlighter>

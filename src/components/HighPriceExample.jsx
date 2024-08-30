@@ -14,7 +14,7 @@ export default function HighPriceCalculation({ aggregates }) {
 
   return (
     <div className="mb-8">
-      <h3 className="text-2xl font-semibold mb-2 text-blue-400">
+      <h3 className="text-2xl font-semibold mb-2 text-blue-300">
         Calculate High Price
       </h3>
 
@@ -25,9 +25,9 @@ export default function HighPriceCalculation({ aggregates }) {
         className="rounded-md mb-4"
       >
         {`private double calculateHighPrice(List<Aggregates> aggregates) {
-    return aggregates.stream()  // Source: the data source is a list of aggregates
-            .mapToDouble(Aggregates::getHigh) // Intermediate Operation, Stateless, transforms each 'Aggregates' to its 'high' value
-            .max() // Terminal Operation, Stateful operation that processes all elements to determine the highest value
+    return aggregates.stream()  // Source: List of aggregates
+            .mapToDouble(Aggregates::getHigh) // Intermediate Operation, Stateless
+            .max() // Terminal Operation, Stateful, Determines the highest value
             .orElse(Double.NaN); // Provides a default value if the stream is empty
 }
 `}
@@ -41,13 +41,13 @@ export default function HighPriceCalculation({ aggregates }) {
       >
         {`// For Loop Equivalent
 private double calculateHighPrice(List<Aggregates> aggregates) {
-    double maxHigh = Double.NaN; // Initial state
-    for (Aggregates aggregate : aggregates) { // Iterative approach: loops through each element
-        if (Double.isNaN(maxHigh) || aggregate.getHigh() > maxHigh) { // Checks if current 'high' is greater
-            maxHigh = aggregate.getHigh(); // Updates the maximum if current is higher
+    double maxHigh = Double.NaN;
+    for (Aggregates aggregate : aggregates) {
+        if (Double.isNaN(maxHigh) || aggregate.getHigh() > maxHigh) {
+            maxHigh = aggregate.getHigh();
         }
     }
-    return maxHigh; // Returns the final maximum value
+    return maxHigh;
 }
 `}
       </SyntaxHighlighter>
