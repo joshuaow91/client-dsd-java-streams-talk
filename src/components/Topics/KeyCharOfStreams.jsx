@@ -80,11 +80,7 @@ List<String> result = names.stream()
               achieve those outcomes.
             </li>
           </ul>
-          <p className="text-lg md:text-2xl mb-6 leading-8 md:leading-10">
-            The declarative style is similar to SQL or LINQ, where you define
-            what you want to achieve, not the step-by-step procedures to achieve
-            it. This can lead to more concise and readable code.
-          </p>
+
           <SyntaxHighlighter
             language="java"
             style={oneDark}

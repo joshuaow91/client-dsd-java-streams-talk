@@ -1,20 +1,7 @@
 import { useState } from "react";
-// import AdditionalAspectsOfPipeline from "./components/AdditionalAspectPipeline";
 import AggregationDemo from "./components/Examples";
 import Header from "./components/Header";
-// import HowStreamsWork from "./components/HowStreamsWork";
-// import ImmutabilityInStreams from "./components/ImmutabilityStreams";
-// import LazinessAndShortCircuiting from "./components/LazinessShortCircuting";
-// import LimitationsOfStreams from "./components/LimitationsStreams";
 import OpenToWork from "./components/OpenToWork";
-// import WhatAreStreams from "./components/WhatAreStreams";
-// import KeyCharacteristics from "./components/KeyCharacteristics";
-// import PhasesOfStreamProcessing from "./components/PhasesOfStreams";
-// import StreamInternals from "./components/StreamInternals";
-// import ExecutionModel from "./components/ExecutionModel";
-// import ShortCircuitingOperations from "./components/ShortCircuiting";
-// import StreamOperations from "./components/StreamOperations";
-// import AdvancedExamples from "./components/Topics/MaxProdExample";
 import IntroductionToStreams from "./components/Topics/IntroductionToStreams";
 import KeyCharacteristicsOfStreams from "./components/Topics/KeyCharOfStreams";
 import InternalWorkingsOfStream from "./components/Topics/Internals";
@@ -51,20 +38,6 @@ export default function App() {
       <ShortCircuitOperations isConcise={isConcise} />
       <MaxProductStreamExample isConcise={isConcise} />
 
-      {/* <WhatAreStreams isConcise={isConcise} /> */}
-      {/* <KeyCharacteristics isConcise={isConcise} /> */}
-      {/* <PhasesOfStreamProcessing isConcise={isConcise} /> */}
-      {/* <StreamInternals isConcise={isConcise} /> */}
-      {/* <ExecutionModel isConcise={isConcise} /> */}
-      {/* <ShortCircuitingOperations isConcise={isConcise} /> */}
-      {/* <StreamOperations /> */}
-      {/* <AdvancedExamples isConcise={isConcise} /> */}
-
-      {/* <HowStreamsWork isConcise={isConcise} /> */}
-      {/* <ImmutabilityInStreams isConcise={isConcise} /> */}
-      {/* <LazinessAndShortCircuiting isConcise={isConcise} /> */}
-      {/* <AdditionalAspectsOfPipeline isConcise={isConcise} /> */}
-      {/* <LimitationsOfStreams isConcise={isConcise} /> */}
       <AggregationDemo />
       <OpenToWork />
     </div>

@@ -13,39 +13,39 @@ export default function AggregationDemo() {
       open: 110,
       close: 115,
       startTime: "2023-08-25T10:00:00Z",
-      endTime: "2023-08-25T10:15:00Z",
+      endTime: "2023-08-25T10:01:00Z",
     },
     {
       high: 130,
       low: 105,
       open: 115,
       close: 125,
-      startTime: "2023-08-25T10:15:00Z",
-      endTime: "2023-08-25T10:30:00Z",
+      startTime: "2023-08-25T10:01:00Z",
+      endTime: "2023-08-25T10:02:00Z",
     },
     {
       high: 128,
       low: 102,
       open: 123,
       close: 107,
-      startTime: "2023-08-25T10:30:00Z",
-      endTime: "2023-08-25T10:45:00Z",
+      startTime: "2023-08-25T10:02:00Z",
+      endTime: "2023-08-25T10:03:00Z",
     },
     {
       high: 135,
       low: 110,
       open: 130,
       close: 132,
-      startTime: "2023-08-25T10:45:00Z",
-      endTime: "2023-08-25T11:00:00Z",
+      startTime: "2023-08-25T10:03:00Z",
+      endTime: "2023-08-25T10:04:00Z",
     },
     {
       high: 140,
       low: 115,
       open: 134,
       close: 138,
-      startTime: "2023-08-25T11:00:00Z",
-      endTime: "2023-08-25T11:15:00Z",
+      startTime: "2023-08-25T10:04:00Z",
+      endTime: "2023-08-25T10:05:00Z",
     },
   ];
 
@@ -62,13 +62,12 @@ export default function AggregationDemo() {
           style={oneDark}
           className="rounded-md mb-4"
         >
-          {`[
-  { high: 120, low: 100, open: 110, close: 115, startTime: "2023-08-25T10:00:00Z", endTime: "2023-08-25T10:15:00Z" },
-  { high: 130, low: 105, open: 115, close: 125, startTime: "2023-08-25T10:15:00Z", endTime: "2023-08-25T10:30:00Z" },
-  { high: 128, low: 102, open: 123, close: 107, startTime: "2023-08-25T10:30:00Z", endTime: "2023-08-25T10:45:00Z" },
-  { high: 135, low: 110, open: 130, close: 132, startTime: "2023-08-25T10:45:00Z", endTime: "2023-08-25T11:00:00Z" },
-  { high: 140, low: 115, open: 134, close: 138, startTime: "2023-08-25T11:00:00Z", endTime: "2023-08-25T11:15:00Z" }
-]`}
+          {`  { high: 120, low: 100, open: 110, close: 115, startTime: "2023-08-25T10:00:00Z", endTime: "2023-08-25T10:01:00Z" },
+  { high: 130, low: 105, open: 115, close: 125, startTime: "2023-08-25T10:01:00Z", endTime: "2023-08-25T10:02:00Z" },
+  { high: 128, low: 102, open: 123, close: 107, startTime: "2023-08-25T10:02:00Z", endTime: "2023-08-25T10:03:00Z" },
+  { high: 135, low: 110, open: 130, close: 132, startTime: "2023-08-25T10:03:00Z", endTime: "2023-08-25T10:04:00Z" },
+  { high: 140, low: 115, open: 134, close: 138, startTime: "2023-08-25T10:04:00Z", endTime: "2023-08-25T10:05:00Z" }
+`}
         </SyntaxHighlighter>
       </div>
 
