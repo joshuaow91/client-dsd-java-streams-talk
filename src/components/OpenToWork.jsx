@@ -3,7 +3,7 @@ export default function OpenToWork() {
     <div className="snap-start h-screen flex flex-col items-center justify-center bg-blk py-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center">
         <div className="flex flex-col">
-          <h2 className="text-7xl md:text-9xl max-w-4xl mb-12 tracking-tighter drop-shadow-lg uppercase font-black bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
+          <h2 className="text-7xl animate-bounce md:text-9xl max-w-4xl mb-12 tracking-tighter drop-shadow-lg uppercase font-black bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
             Open to Work, <br />
             Hire Me!
           </h2>
@@ -27,15 +27,6 @@ export default function OpenToWork() {
                 Portfolio
               </button>
             </a>
-            {/* <a
-              href="https://github.com/joshuaow91/Stock-Scanner"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="text-lg md:text-4xl bg-purple-500 text-white font-bold py-4 px-6 rounded-md shadow-lg hover:bg-purple-600 transition">
-                Stock Scanner Repo
-              </button>
-            </a> */}
           </div>
         </div>
 

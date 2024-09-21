@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { useState } from "react";
 import Header from "./components/Header";
 import AggregationDemo from "./components/ScannerExamples/Examples";
 import OpenToWork from "./components/OpenToWork";
@@ -13,45 +13,50 @@ import MaxProductStreamExample from "./components/Topics/MaxProdExample";
 import Presentation from "./components/Presentation/Presentation";
 
 export default function App() {
+  const [isPresentationMode, setIsPresentationMode] = useState(false);
+
+  const toggleViewMode = () => {
+    setIsPresentationMode((prevMode) => !prevMode);
+  };
+
   return (
-    <Router>
-      <div className="max-w-screen-2xl px-4 min-h-screen mx-auto selection:bg-pink-500 selection:text-blk bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-zinc-900 to-blk">
-        <Header />
-        <div className="fixed top-0 right-0 m-4">
-          <Link to="/presentation">
-            <button className="bg-blue-500 text-white font-semibold px-6 py-2 rounded-md">
-              Presentation Mode
-            </button>
-          </Link>
-          <Link to="/">
-            <button className="bg-blue-500 text-white font-semibold px-6 py-2 rounded-md ml-4">
-              Detailed View
-            </button>
-          </Link>
-        </div>
+    <div
+      className="max-w-screen-2xl px-4 min-h-screen mx-auto selection:bg-pink-500 selection:text-blk
+    bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-zinc-900 to-blk
+    "
+    >
+      <Header isPresentationMode={isPresentationMode} />
 
-        <Routes>
-          <Route path="/presentation" element={<Presentation />} />
-
-          <Route
-            path="/"
-            element={
-              <>
-                <IntroductionToStreams />
-                <KeyCharacteristicsOfStreams />
-                <InternalWorkingsOfStream />
-                <CoreOperationsOfStreams />
-                <IntermediateOperations />
-                <TerminalOperations />
-                <ShortCircuitOperations />
-                <MaxProductStreamExample />
-                <AggregationDemo />
-              </>
-            }
+      <div className="fixed top-0 right-0 m-4 flex items-center">
+        <label className="relative inline-flex items-center cursor-pointer">
+          <input
+            type="checkbox"
+            checked={isPresentationMode}
+            onChange={toggleViewMode}
+            className="sr-only peer"
           />
-        </Routes>
-        <OpenToWork />
+          <div className="w-11 h-6 bg-gray-500 peer-focus:outline-none peer-focus:ring-0 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+        </label>
+        <span className="ml-2 text-white">Presentation Mode</span>
       </div>
-    </Router>
+
+      {isPresentationMode ? (
+        <Presentation />
+      ) : (
+        <>
+          <IntroductionToStreams />
+          <KeyCharacteristicsOfStreams />
+          <InternalWorkingsOfStream />
+          <CoreOperationsOfStreams />
+          <IntermediateOperations />
+          <TerminalOperations />
+          <ShortCircuitOperations />
+          <MaxProductStreamExample />
+          <AggregationDemo />
+        </>
+      )}
+
+      <OpenToWork />
+    </div>
   );
 }

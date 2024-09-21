@@ -6,6 +6,16 @@ export default {
       colors: {
         blk: "#121212",
       },
+      keyframes: {
+        "bg-position": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+      },
+      animation: {
+        "bg-position": "bg-position 3s ease infinite",
+      },
     },
   },
   plugins: [],
