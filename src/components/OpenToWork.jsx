@@ -8,13 +8,13 @@ export default function OpenToWork() {
             Hire Me!
           </h2>
 
-          <div className="flex flex-col space-y-4">
+          <div className="flex gap-4">
             <a
               href="https://www.linkedin.com/in/JoshuaOwDev"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="text-lg md:text-4xl bg-green-500 text-white font-bold py-4 px-6 rounded-md shadow-lg hover:bg-green-600 transition">
+              <button className="text-lg md:text-4xl bg-blue-500 text-white font-bold py-4 px-6 rounded-md shadow-lg hover:bg-blue-600 transition">
                 LinkedIn
               </button>
             </a>
@@ -23,11 +23,11 @@ export default function OpenToWork() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="text-lg md:text-4xl bg-blue-500 text-white font-bold py-4 px-6 rounded-md shadow-lg hover:bg-blue-600 transition">
+              <button className="text-lg md:text-4xl bg-green-500 text-white font-bold py-4 px-6 rounded-md shadow-lg hover:bg-green-600 transition">
                 Portfolio
               </button>
             </a>
-            <a
+            {/* <a
               href="https://github.com/joshuaow91/Stock-Scanner"
               target="_blank"
               rel="noopener noreferrer"
@@ -35,7 +35,7 @@ export default function OpenToWork() {
               <button className="text-lg md:text-4xl bg-purple-500 text-white font-bold py-4 px-6 rounded-md shadow-lg hover:bg-purple-600 transition">
                 Stock Scanner Repo
               </button>
-            </a>
+            </a> */}
           </div>
         </div>
 

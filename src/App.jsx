@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Header from "./components/Header";
-import AggregationDemo from "./components/Examples";
+import AggregationDemo from "./components/ScannerExamples/Examples";
 import OpenToWork from "./components/OpenToWork";
 import IntroductionToStreams from "./components/Topics/IntroductionToStreams";
 import KeyCharacteristicsOfStreams from "./components/Topics/KeyCharOfStreams";
@@ -37,14 +37,14 @@ export default function App() {
             path="/"
             element={
               <>
-                <IntroductionToStreams isConcise={false} />
-                <KeyCharacteristicsOfStreams isConcise={false} />
-                <InternalWorkingsOfStream isConcise={false} />
-                <CoreOperationsOfStreams isConcise={false} />
-                <IntermediateOperations isConcise={false} />
-                <TerminalOperations isConcise={false} />
-                <ShortCircuitOperations isConcise={false} />
-                <MaxProductStreamExample isConcise={false} />
+                <IntroductionToStreams />
+                <KeyCharacteristicsOfStreams />
+                <InternalWorkingsOfStream />
+                <CoreOperationsOfStreams />
+                <IntermediateOperations />
+                <TerminalOperations />
+                <ShortCircuitOperations />
+                <MaxProductStreamExample />
                 <AggregationDemo />
               </>
             }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import PropTypes from "prop-types";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { customStyle } from "../utils/codeBlockStyles";
+import { customStyle } from "../../utils/codeBlockStyles";
 
 export default function HighPriceCalculation({ aggregates }) {
   const [highPrice, setHighPrice] = useState(null);
