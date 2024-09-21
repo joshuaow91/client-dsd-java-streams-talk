@@ -14,7 +14,7 @@ export default {
         },
       },
       animation: {
-        "bg-position": "bg-position 3s ease infinite",
+        "bg-position": "bg-position 2s ease infinite",
       },
     },
   },
