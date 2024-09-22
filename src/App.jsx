@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import AggregationDemo from "./components/ScannerExamples/Examples";
 import OpenToWork from "./components/OpenToWork";
@@ -14,16 +14,38 @@ import Presentation from "./components/Presentation/Presentation";
 
 export default function App() {
   const [isPresentationMode, setIsPresentationMode] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const toggleViewMode = () => {
     setIsPresentationMode((prevMode) => !prevMode);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div
       className="max-w-screen-2xl px-4 min-h-screen mx-auto selection:bg-pink-500 selection:text-blk
-    bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-zinc-900 to-blk
-    "
+    bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-zinc-900 to-blk"
     >
       <Header isPresentationMode={isPresentationMode} />
 
@@ -57,6 +79,15 @@ export default function App() {
       )}
 
       <OpenToWork />
+
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 right-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-full shadow-lg hover:bg-blue-600 transition duration-300"
+        >
+          &uarr; Top
+        </button>
+      )}
     </div>
   );
 }
