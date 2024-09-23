@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { customStyle } from "../../utils/codeBlockStyles";
@@ -7,6 +7,12 @@ import { customStyle } from "../../utils/codeBlockStyles";
 export default function ParallelStreams() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
+
+  const [activeTab, setActiveTab] = useState("tradeoffs");
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
 
   return (
     <motion.div
@@ -31,84 +37,96 @@ export default function ParallelStreams() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 0.4, duration: 0.6 }}
       >
-        Parallel streams provide a way to take advantage of multiple CPU cores
-        by breaking down the work into smaller tasks that run concurrently.
+        <span className="text-green-300 font-bold">Concurrency</span>: Splits tasks into smaller units executed across multiple threads. <br />
+        <span className="text-blue-300 font-bold">ForkJoinPool</span>: Manages thread distribution and task execution behind the scenes. <br />
+        <span className="text-orange-300 font-bold">Task Splitting</span>: Automatically divides large datasets into chunks processed in parallel. <br />
+        <span className="text-purple-300 font-bold">Task Coordination</span>: Combines results from threads automatically after processing.
       </motion.p>
 
-      <motion.h3
-        className="text-xl md:text-3xl font-semibold text-blue-300"
-        initial={{ opacity: 0, x: -30 }}
-        animate={isInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ delay: 0.6, duration: 0.6 }}
-      >
-        Trade-offs:
-      </motion.h3>
+      <div className="flex space-x-4 mb-6">
+        <button
+          onClick={() => handleTabChange("tradeoffs")}
+          className={`px-4 py-2 text-lg md:text-2xl font-semibold rounded-md ${
+            activeTab === "tradeoffs" ? "bg-blue-500 text-white" : "bg-gray-500 text-gray-300"
+          }`}
+        >
+          Trade-offs
+        </button>
+        <button
+          onClick={() => handleTabChange("considerations")}
+          className={`px-4 py-2 text-lg md:text-2xl font-semibold rounded-md ${
+            activeTab === "considerations" ? "bg-blue-500 text-white" : "bg-gray-500 text-gray-300"
+          }`}
+        >
+          Considerations
+        </button>
+      </div>
 
-      <motion.ul
-        className="list-disc marker:text-pink-500 pl-6 text-lg md:text-2xl mb-6 leading-8 md:leading-10"
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={{
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.2,
-            },
-          },
-          hidden: { opacity: 0 },
-        }}
-      >
-        <motion.li
-          initial={{ opacity: 0, x: -30 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
+      {activeTab === "tradeoffs" && (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-orange-300 font-bold">Reduced runtime</span>:
-          With large datasets, the work can be divided among multiple threads,
-          reducing the total time to complete the task.
-        </motion.li>
-        <motion.li
-          initial={{ opacity: 0, x: -30 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          <ul className="list-disc marker:text-pink-500 pl-6 text-lg md:text-2xl mb-6 leading-8 md:leading-10">
+            <li>
+              <span className="text-orange-300 font-bold">Reduced Runtime</span>: For large datasets, parallel streams use multiple CPU cores to process faster.
+            </li>
+            <li>
+              <span className="text-red-300 font-bold">Increased Memory Usage</span>: Tasks are split across threads, requiring additional memory per thread.
+            </li>
+          </ul>
+
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+            {`// Trade-off Example: Using Parallel Streams for a Large Dataset
+// 1. Generate a large list of numbers (1 to 1,000,000)
+List<Integer> numbers = IntStream.rangeClosed(1, 1000000).boxed().collect(Collectors.toList());
+
+// 2. Use a parallel stream to process the numbers concurrently
+int sum = numbers.parallelStream()  // Switches to parallel processing using multiple threads
+                 .mapToInt(Integer::intValue) // Intermediate operation: maps each element to an integer
+                 .sum(); // Terminal operation: sums all the integers
+
+// Result: Faster processing due to parallelism, but with higher memory usage
+// Output: 500000500000
+`}
+          </SyntaxHighlighter>
+        </motion.div>
+      )}
+
+      {activeTab === "considerations" && (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-red-300 font-bold">Increased memory usage</span>
-          : Parallel streams typically consume more memory compared to
-          sequential streams, as tasks are divided and executed in separate
-          threads.
-        </motion.li>
-        <motion.li
-          initial={{ opacity: 0, x: -30 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-green-300 font-bold">Considerations</span>:
-          Thread management, synchronization, and task coordination are crucial
-          factors when using parallel streams.
-        </motion.li>
-      </motion.ul>
+          <ul className="list-disc marker:text-pink-500 pl-6 text-lg md:text-2xl mb-6 leading-8 md:leading-10">
+            <li>
+              <span className="text-green-300 font-bold">Immutability/Statelessness</span>: Make sure your data and operations don&apos;t rely on anything that can be changed by other threads. Crucial for avoiding race conditions.
+            </li>
+            <li>
+              <span className="text-purple-300 font-bold">Synchronization</span>: If shared mutable data is modified by multiple threads, synchronization is required to avoid race conditions. However, this can negate the performance benefits of parallelism.
+            </li>
+          </ul>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.8, duration: 0.6 }}
-      >
-        <SyntaxHighlighter
-          language="java"
-          style={oneDark}
-          customStyle={customStyle}
-        >
-          {`// Example: Summing a list of numbers using Parallel Streams
-List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+          <SyntaxHighlighter language="java" style={oneDark} customStyle={customStyle}>
+            {`// Considerations Example: Handling Shared Mutable State with Synchronization
+// 1. Generate a large list of numbers (1 to 1,000,000)
+List<Integer> numbers = IntStream.rangeClosed(1, 1000000).boxed().collect(Collectors.toList());
 
-// Parallel stream to sum the numbers
-int sum = numbers.parallelStream()
-                 .mapToInt(Integer::intValue)
-                 .sum(); 
+// 2. Shared mutable state: This array will be modified by multiple threads
+int[] sharedState = {0};
 
-// Output: 55`}
-        </SyntaxHighlighter>
-      </motion.div>
+// 3. Use a parallel stream to modify the shared state, requiring synchronization
+numbers.parallelStream().forEach(num -> synchronized (sharedState) {
+    sharedState[0] += num;  // Synchronization prevents race conditions
+});
+
+// Result: Correct output, but synchronization reduces performance gains from parallelism
+`}
+          </SyntaxHighlighter>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
