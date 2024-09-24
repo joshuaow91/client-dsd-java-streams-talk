@@ -31,7 +31,7 @@ export default function WhenToUseParallelStreams() {
         When to Use Parallel Streams
       </motion.h2>
 
-      <div className="flex space-x-4 mb-6">
+      <div className="flex md:flex-row flex-col gap-4 mb-6">
         <button
           onClick={() => handleTabChange("largeDatasets")}
           className={`px-4 py-2 text-lg md:text-2xl font-semibold rounded-md ${

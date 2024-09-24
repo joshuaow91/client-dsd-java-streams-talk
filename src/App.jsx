@@ -44,7 +44,7 @@ export default function App() {
 
   return (
     <div
-      className="max-w-screen-2xl px-4 min-h-screen mx-auto selection:bg-pink-500 selection:text-blk
+      className="max-w-screen-2xl min-h-screen mx-auto selection:bg-pink-500 selection:text-blk
     bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-zinc-900 to-blk"
     >
       <Header isPresentationMode={isPresentationMode} />
@@ -65,7 +65,7 @@ export default function App() {
       {isPresentationMode ? (
         <Presentation />
       ) : (
-        <>
+        <div className="pr-6 px-4">
           <IntroductionToStreams />
           <KeyCharacteristicsOfStreams />
           <InternalWorkingsOfStream />
@@ -75,7 +75,7 @@ export default function App() {
           <ShortCircuitOperations />
           <MaxProductStreamExample />
           <AggregationDemo />
-        </>
+        </div>
       )}
 
       <OpenToWork />

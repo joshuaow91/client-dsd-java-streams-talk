@@ -31,7 +31,7 @@ export default function WhenStreamsNotIdeal() {
         When Streams May Not Be Ideal
       </motion.h2>
 
-      <div className="flex space-x-4 my-6">
+      <div className="flex md:flex-row flex-col gap-4 my-6">
         <button
           onClick={() => handleTabChange("smallDatasets")}
           className={`px-4 py-2 text-lg md:text-2xl font-semibold rounded-md ${
